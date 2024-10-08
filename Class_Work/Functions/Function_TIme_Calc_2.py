@@ -6,13 +6,27 @@ def calc(n):
     for i in range(0,n):
         a = i* 10
 
-def wrapper(func , n):
-    start = time.time() * 100000
+# def wrapper(func , n):
+#     start = time.time() * 100000
 
-    func(n)
-    end = time.time() * 100000
+#     func(n)
+#     end = time.time() * 100000
 
-    print(f"For n = {n} \n Execution time is {end - start } micro sec")
+#     print(f"For n = {n} \n Execution time is {end - start } micro sec")
 
-for n in ns:
-    wrapper(calc,n)
+# for n in ns:
+#     wrapper(calc,n)
+
+def wrapper(func ,*args ,**kwargs):
+    def wrapped(*args,**kwargs):
+        start = time.time() *100000
+
+        func(*args , **kwargs)
+        end  = time.time() *100000
+
+        print(f"For n = {n} \n Execution time is {end - start } micro sec")
+    return wrapped
+
+n= 100000000
+
+wrapper(calc,n )
