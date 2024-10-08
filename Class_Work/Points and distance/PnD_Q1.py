@@ -18,6 +18,9 @@
 # print(distance(p1,p2))
 
 ###########################################################################################################
+import numpy as np
+import math
+
 
 p1 ={"x":0,"y":1}
 p2 ={"x":2,"y":4}
@@ -38,5 +41,9 @@ def polar(p1):
     x=p1["x"]
     y=p1["y"]
 
-    return (r,phi)
+    rho = np.sqrt(x**2 + y**2)
+    phi = np.arctan2(y, x)
+
+    return (rho,phi)
 print(distance(p3,p1))
+print(polar(p1))
