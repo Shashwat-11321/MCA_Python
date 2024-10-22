@@ -1,0 +1,1 @@
+#define a class method and static method in python with an example 
